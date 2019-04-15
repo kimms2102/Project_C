@@ -1,0 +1,33 @@
+#include<stdio.h>
+#include<stdlib.h>
+typedef struct {
+	
+	int data;
+	struct Node *next;
+	
+}Node;
+
+void main()
+{
+	Node *Head = (Node*)malloc(sizeof(Node));
+	Node *Node1 = (Node*)malloc(sizeof(Node));
+	Node1->data=23;
+	Head->next=Node1;
+	
+	Node *Node2 = (Node*)malloc(sizeof( Node));
+	Node2->data=24;
+	Node1->next=Node2;
+	Node2->next=NULL;
+
+	Node *curr = Head->next;
+	
+	while(curr !=NULL)
+	{
+		printf("%d\n",curr->data);
+		curr = curr->next;
+	}
+	
+	free(Node1);
+	free(Head);
+	free(Node2);
+}
